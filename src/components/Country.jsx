@@ -1,20 +1,19 @@
-import { useState } from "react";
+export default function Country(props) {
 
-function Country() {
-    const [name, setName] = useState("United States");
-    const [gold, setGold] = useState(0);
-    function increment(){
-        setGold(gold + 1);
-    }
+    // function increment(){
+    //     setGold(gold + 1);
+    // }
+
     return ( 
         <div className="card">
-            <h2 className="card-header">{name}</h2>
+            <div className="card-header">
+                <h2>{props.country.name}</h2>
+                <button onClick={() => props.onDelete(props.country.id)}>X</button>
+            </div>
             <div className="card-body">
-                <p>Gold medals: {gold}</p>
-                <button onClick={increment}>+</button>
+                <p>Gold medals: {props.country.gold}</p>
+                {/* <button onClick={increment}>+</button> */}
             </div>
         </div>
     );
 }
-
-export default Country;
