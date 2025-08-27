@@ -1,3 +1,5 @@
+import Medal from "./Medal";
+
 export default function Country(props) {
 
     // function increment(){
@@ -11,7 +13,10 @@ export default function Country(props) {
                 <button onClick={() => props.onDelete(props.country.id)}>X</button>
             </div>
             <div className="card-body">
-                <p>Gold medals: {props.country.gold}</p>
+                {props.medals.map((medal) => (
+                    <Medal key={medal.id + props.country.name} type={medal.name}/>
+                ))}
+                {/* <p>Gold medals: {props.country.gold}</p> */}
                 {/* <button onClick={increment}>+</button> */}
             </div>
         </div>

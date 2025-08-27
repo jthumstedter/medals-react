@@ -34,12 +34,13 @@
   opacity: 0.4;
 }
 .card-body{
-  display:flex;
+  /* display: flex; */
   font-size: 1.05em;
   padding: 6px;
 }
 .card-body > p{
-  flex: 9;
+  /* flex: 9; */
+  margin-bottom: 5px;
 }
 .card-body > button{
   flex: 1;
