@@ -1,0 +1,92 @@
+#trigger{
+    position: fixed;
+    left: 0.8rem;
+    bottom: 0.8rem;
+    cursor: pointer;
+    z-index: 80;
+    transform: scale(80%, 80%);
+    transition: transform 150ms ease-in-out;
+}
+#trigger:hover {
+    transform: rotate(90deg) scale(100%, 100%);
+}
+#dialog,
+#dialog * {
+    box-sizing: border-box;
+}
+#dialog {
+    background-color: silver;
+    box-shadow: 0.15rem 0.15rem 0.35rem #1a1a1a;
+    border: 0.1rem solid #1a1a1a;
+    padding: 0.8rem;
+    width: 275px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: grid;
+    gap: 0.6rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+        "_header _header"
+        "_name _name"
+        "_save _cancel";
+}
+#dialog > header {
+    grid-area: _header;
+    font-size: 1.33em;
+    font-weight: bold;
+    padding: 0.25rem 0.25rem 0 0.25rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+#dialog > div:has(> #name){
+    grid-area: _name;
+}
+#dialog > div:has(> #save){
+    grid-area: _save;
+}
+#dialog > div:has(> #cancel){
+    grid-area: _cancel;
+}
+
+#dialog > div > #save,
+#dialog > div > #cancel,
+#dialog > div > #name {
+    border: 0;
+    outline: none;
+    width: 100%;
+}
+#dialog > div > #name {
+    font-size: 1.3rem !important;
+    padding: 0.2rem;
+}
+#dialog > div > #save{
+    background-color: var(--button-main-color);
+}
+#dialog > div > #save:disabled{
+    background-color: var(--button-main-color-disabled);
+}
+#dialog > div > #cancel{
+    background-color: var(--button-secondary-color);
+}
+#dialog > div > button{
+    transition: opacity 300ms ease-in-out;
+}
+#dialog > div > button:hover:enabled{
+    cursor: pointer;
+    opacity: 0.4;
+}
+#overlay {
+    background-color: silver;
+    opacity: 0.4;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 90;
+}

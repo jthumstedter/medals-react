@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import Country from "./components/Country";
+import NewCountry from "./components/NewCountry";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,11 @@ function App() {
     { id: 2, name: "silver" },
     { id: 3, name: "bronze" },
   ]);
+  function handleAdd(name) {
+    console.log(`add ${name}`);
+    const id = countries.length === 0 ? 1 : Math.max(...countries.map((country) => country.id)) + 1;
+    setCountries(countries.concat({id: id, name: name, gold: 0, silver: 0, bronze: 0}))
+  }
   function handleIncrement(countryId, medal){
     const countriesMutable = [...countries];
     const idx = countriesMutable.findIndex((c) => c.id === countryId);
@@ -47,6 +53,7 @@ function App() {
       {countries.map((country) => (
         <Country key={country.id} country={country} medals={medals} onDelete = {handleDelete} increment = {handleIncrement} decrement = {handleDecrement}/>
       ))}
+      <NewCountry onAdd={handleAdd}/>
     </div>
   );
 }

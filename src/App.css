@@ -9,7 +9,7 @@
 }
 
 .card-header{
-  background-color: lightgray;
+  background-color: var(--header-color);
   font-size: 2em;
   padding:3px;
   display: flex
@@ -24,7 +24,7 @@
 .card-header > button{
   flex: 1;
   text-align: center;
-  background-color: red;
+  background-color: var(--button-secondary-color);
   border: 1px;
   border-style: solid;
   padding: 1px;
@@ -59,7 +59,7 @@
 .card-body > .medal > .medalButtons button{
   flex: 1;
   text-align: center;
-  background-color: gold;
+  background-color: var(--button-main-color);
   border: 1px;
   border-style: solid;
   padding: 1px;
@@ -67,7 +67,7 @@
   transition: opacity 300ms ease-in-out;
 }
 .card-body > .medal > .medalButtons button:disabled{
-  background-color: grey;
+  background-color: var(--button-main-color-disabled);
   cursor: not-allowed;
 }
 .card-body> .medal button:hover:enabled{
